@@ -1,0 +1,34 @@
+//Hindy London
+//Iterable
+
+package Iterable;
+import java.util.*;
+
+public class UsingIterable implements Iterable<Integer> {
+	private int[] nums;
+	public UsingIterable(int[] nums) {
+		this.nums = nums;
+	
+	}
+	
+	@Override
+	public Iterator<Integer> iterator(){
+		return new UsingIterator();
+	}
+	private class UsingIterator implements Iterator<Integer> {
+		private int i = 0;
+	
+	@Override
+	public boolean hasNext() {
+		return i < nums.length;
+	}
+	
+	@Override
+	public Integer next() {
+		if (!hasNext()) {
+			throw new java.util.NoSuchElementException();
+		}
+		return nums[i++];
+	}
+}
+}
