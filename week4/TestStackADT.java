@@ -17,7 +17,7 @@ public class TestStackADT {
 //peek
 		System.out.println("The toppest of the list is: " + list.peek());
 //check if its empty
-		System.out.println("Empty? " + list.isStackEmpty());
+		System.out.println("Empty? " + list.isEmpty());
 //report the size
 		System.out.println("Size: " + list.size());
 //create new Linked List that is a String
@@ -32,7 +32,7 @@ public class TestStackADT {
 //peek at top one
 		System.out.println("The toppest of the list is: " + list2.peek());
 //check if empty
-		System.out.println("Empty? " + list2.isStackEmpty());
+		System.out.println("Empty? " + list2.isEmpty());
 //report the size
 		System.out.println("Size: " + list2.size());
 
