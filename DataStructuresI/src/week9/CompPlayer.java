@@ -12,13 +12,13 @@ public class CompPlayer implements PlayerInterface{
 		this.humanSymbol = humanSymbol;
 	}
 	
-	//get comp symnbol based off of what user chose, the opposite is computer
+	//get comp symbol based off of what user chose, the opposite is computer
 	public char getSymbol() {
-		if (humanSymbol == 'X') {
-			symbol = 'O';
+		if (humanSymbol == 'x') {
+			symbol = 'o';
 		}
 		else {
-			symbol = 'X';
+			symbol = 'x';
 		}
 		return symbol;
 	}
