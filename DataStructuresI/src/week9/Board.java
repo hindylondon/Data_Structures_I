@@ -1,11 +1,11 @@
 package week9;
 
 public class Board {
-	//fields
+	// fields
 	protected static char[][] board;
 	private static int length = 3;
 
-	//constructor, set blank board
+	// constructor, set blank board
 	public Board() {
 		board = new char[length][length];
 		for (int i = 0; i < board.length; i++) {
@@ -14,7 +14,8 @@ public class Board {
 			}
 		}
 	}
-	//getter for length
+
+	// getter for length
 	public int getLength() {
 		return length;
 	}
@@ -36,7 +37,8 @@ public class Board {
 
 	}
 
-	//check for winner of game, check horizontal, vertical, and both diagonals, return if there is a winner or not
+	// check for winner of game, check horizontal, vertical, and both diagonals,
+	// return if there is a winner or not
 	public static boolean checkWinner(char symbol, int row, int col) {
 		boolean winner = true;
 
@@ -94,4 +96,17 @@ public class Board {
 		return false;
 	}
 
+	//checks if board is full
+	//returns if it is so can have a tie
+	public static boolean isBoardFull() {
+		boolean full = true;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] == ' ') {
+					full = false;
+				}
+			}
+		}
+		return full;
+	}
 }
