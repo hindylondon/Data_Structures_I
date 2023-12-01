@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Menu {
 
-	//method to recursively display the menu
+	// method to recursively display the menu
 	public static void DisplayMenu(Scanner scanner) {
 		// give menu options for user
 		System.out.println("Menu:");
@@ -15,11 +15,6 @@ public class Menu {
 		// set users choice
 		int menuOption = scanner.nextInt();
 
-		// input validation that user chooses an appropriate menu option
-		while (menuOption != 1 && menuOption != 2) {
-			System.out.println("Invalid Entry! Please enter either 1 or 2.");
-		}
-		// display results for menu option 1
 		if (menuOption == 1) {
 			System.out.println(
 					"Tic Tac Toe is played on a 3x3 grid, with two players taking turns marking cells with their symbols (X or O). "
@@ -27,9 +22,15 @@ public class Menu {
 							+ "\nThe game ends when a player achieves a winning combination or when the entire board is filled, resulting in a draw. "
 							+ "\nPlayers can play multiple rounds, enjoying the game to its fullest.");
 
-			//display menu recursively
+			// display menu recursively
+			DisplayMenu(scanner);
+		} else if (menuOption == 2) {
+			// start the game
+			System.out.println("Starting the game...");
+		} else {
+			// display error message for invalid option
+			System.out.println("Invalid Entry! Please enter either 1 or 2.");
 			DisplayMenu(scanner);
 		}
 	}
-
 }
