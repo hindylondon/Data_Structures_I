@@ -9,6 +9,7 @@ public class HumanPlayer implements PlayerInterface {
 	//constructor
 	public HumanPlayer(char symbol){
 		this.symbol = symbol;
+		
 	}
 	
 	//get symbol, based off of users input
@@ -37,9 +38,7 @@ public class HumanPlayer implements PlayerInterface {
 	        col = scanner.nextInt();
 	    }
 	    
-	    int[] result = {row,col};
-	    
-	    scanner.close();
+	    int[] result = {row - 1,col - 1};
 	    return result;
 	}
 }
