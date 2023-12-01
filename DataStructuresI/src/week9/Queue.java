@@ -9,7 +9,7 @@ public class Queue<T> implements QueueInterface<T> {
 
 	 // Constructor
 	 public Queue() {
-	   list = new ArrayList<>();
+	   list = new ArrayList<T>();
 	   head = 0;
 	   queueLen = 0;
 	 }
