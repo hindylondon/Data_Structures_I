@@ -91,7 +91,12 @@ public class Shopper implements Comparable<Shopper> {
 			
 			//outputs to user their info
 			System.out.println("Ok, you have " + customers[i].getItemsPurchased() + " items in your cart.");
-			customers[i].setTotalPurchase(cartTotal);
+
+			//format the cartTotal output and set it
+			DecimalFormat decimalFormat = new DecimalFormat("0.00");
+			double formattedCartTotal = Double.parseDouble(decimalFormat.format(cartTotal));
+			customers[i].setTotalPurchase(formattedCartTotal);
+
 			System.out.println("Your cart total comes to $" + cartTotal + ".");
 			System.out.println();
 			
