@@ -1,0 +1,106 @@
+package week14;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class SortTests {
+
+	@Test
+	void testSelectionSortWhenInOrderNoSwapsInt() {
+		Integer[] list = { 1, 2, 3, 4, 5 };
+
+		SelectionSort<Integer> selectSort = new SelectionSort<>();
+
+		// call the sort method
+		selectSort.selectionSort(list);
+
+		assertEquals(selectSort.getAccum(), 0);
+	}
+
+	@Test
+	void testThatSelectionSortSwapsWhenNeededInt() {
+		Integer[] list = { 2, 1, 3, 4, 5 };
+
+		SelectionSort<Integer> selectSort = new SelectionSort<>();
+
+		// call the sort method
+		selectSort.selectionSort(list);
+
+		assertEquals(list[0], 1);
+	}
+
+	@Test
+	void testSelectionSortWhenInOrderNoSwapsString() {
+		String[] list = { "apple", "banana", "cheese"};
+
+		SelectionSort<String> selectSort = new SelectionSort<>();
+
+		// call the sort method
+		selectSort.selectionSort(list);
+
+		assertEquals(selectSort.getAccum(), 0);
+	}
+	
+	@Test
+	void testThatSelectionSortSwapsWhenNeededString() {
+		String[] list = { "apple", "banana", "cheese"};
+
+		SelectionSort<String> selectSort = new SelectionSort<>();
+
+		// call the sort method
+		selectSort.selectionSort(list);
+
+		assertEquals(list[0], "apple");
+	}
+	
+	@Test
+	void testBubbleSortWhenInOrderNoSwapsInt() {
+		Integer[] list = { 1, 2, 3, 4, 5 };
+
+		BubbleSort<Integer> bubSort = new BubbleSort<>();
+
+		// call the sort method
+		bubSort.bubbleSort(list);
+
+		assertEquals(bubSort.getAccum(), 0);
+	}
+
+	@Test
+	void testThatBubbleSortSwapsWhenNeededInt() {
+		Integer[] list = { 1, 2, 3, 4, 5 };
+
+		BubbleSort<Integer> bubSort = new BubbleSort<>();
+
+		// call the sort method
+		bubSort.bubbleSort(list);
+
+		assertEquals(list[0], 1);
+	}
+
+	@Test
+	void testBubbleSortWhenInOrderNoSwapsString() {
+		String[] list = { "apple", "banana", "cheese"};
+
+		BubbleSort<String> bubSort = new BubbleSort<>();
+
+		// call the sort method
+		bubSort.bubbleSort(list);
+
+		assertEquals(bubSort.getAccum(), 0);
+	}
+	
+	@Test
+	void testThatBubbleSortSwapsWhenNeededString() {
+		String[] list = { "apple", "banana", "cheese"};
+
+		BubbleSort<String> bubSort = new BubbleSort<>();
+
+		// call the sort method
+		bubSort.bubbleSort(list);
+
+		assertEquals(list[0], "apple");
+	}
+	
+
+}
