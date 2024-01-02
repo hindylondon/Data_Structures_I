@@ -1,5 +1,6 @@
 package week11;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Shopper implements Comparable<Shopper> {
 	private int itemsPurchased;
 	private double totalPurchase;
 	private int coupon;
+	private int insertionOrder;
 
 	//constructor
 	public Shopper(String name, int itemsPurchased, double totalPurchase) {
@@ -19,9 +21,14 @@ public class Shopper implements Comparable<Shopper> {
 		this.itemsPurchased = itemsPurchased;
 		this.totalPurchase = totalPurchase;
 		this.coupon = 15;
+		this.insertionOrder = nextId;
 	}
 
 	//getters and setters
+	public int getInsertionOrder() {
+		return insertionOrder;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -50,19 +57,6 @@ public class Shopper implements Comparable<Shopper> {
 		this.totalPurchase = totalPurchase;
 	}
 	
-	//equals method to be used for testing
-    public boolean equals(Shopper obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Shopper shopper = (Shopper) obj;
-        return Double.compare(shopper.totalPurchase, totalPurchase) == 0 &&
-               itemsPurchased == shopper.itemsPurchased &&
-               name == shopper.name;
-    }
 
 	//main shopping method: sets up the store products, calls for its display, 
 	//displays shoppers cart totals and enqueues to the checkout
@@ -91,12 +85,12 @@ public class Shopper implements Comparable<Shopper> {
 			
 			//outputs to user their info
 			System.out.println("Ok, you have " + customers[i].getItemsPurchased() + " items in your cart.");
-
+			
 			//format the cartTotal output and set it
 			DecimalFormat decimalFormat = new DecimalFormat("0.00");
 			double formattedCartTotal = Double.parseDouble(decimalFormat.format(cartTotal));
 			customers[i].setTotalPurchase(formattedCartTotal);
-
+			
 			System.out.println("Your cart total comes to $" + cartTotal + ".");
 			System.out.println();
 			
@@ -181,17 +175,27 @@ public class Shopper implements Comparable<Shopper> {
 
 	//the compareTo for the PriorityQueue
 	//the customer who spent the most, gets checked out first
+//	@Override
+//	public int compareTo(Shopper o) {
+//		if (totalPurchase < o.totalPurchase) {
+//			return -1;
+//
+//		} else if (totalPurchase > o.totalPurchase) {
+//			return 1;
+//
+//		} else if (totalPurchase == o.totalPurchase){
+//			return Integer.compare(this.insertionOrder, o.insertionOrder);
+//		}
+//		return 0;
+//	}
+	
 	@Override
-	public int compareTo(Shopper o) {
-		if (totalPurchase < o.totalPurchase) {
-			return -1;
-
-		} else if (totalPurchase > o.totalPurchase) {
-			return 1;
-
-		} else {
-			return Integer.compare(id, o.id);
-		}
+	public int compareTo(Shopper other) {
+	    int purchaseComparison = -Double.compare(other.totalPurchase, this.totalPurchase);
+	    if (purchaseComparison == 0) {
+	        return -Integer.compare(this.insertionOrder, other.insertionOrder);
+	    }
+	    return purchaseComparison;
 	}
 	
 
